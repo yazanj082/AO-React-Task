@@ -14,7 +14,7 @@ const SideBar: React.FC = () => {
 
     const items = [
         { name: 'Home', icon: <HomeIcon className={styles.sideBarIcon} />, route: '/' },
-        { name: 'Star Wars', Icon: <StarIcon className={styles.sideBarIcon} />, route: '/star-wars' }
+        { name: 'Star Wars', icon: <StarIcon className={styles.sideBarIcon} />, route: '/star-wars' }
     ]
 
     return (
