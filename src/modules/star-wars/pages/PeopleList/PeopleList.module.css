@@ -1,0 +1,12 @@
+.peopleList {
+    padding: 20px;
+    margin: 20px;
+
+}
+
+.peopleListHeader {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
