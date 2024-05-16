@@ -1,0 +1,59 @@
+:root {
+    --primary-color: #A61D33;
+    --secondary-color: #f6f6f7;
+    --hover-color: #8C1728;
+}
+
+.sideBar {
+    width: 250px;
+    height: 100vh;
+    color: var(--secondary-color);
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.sideBarItem {
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.sideBarItemActive {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.sideBarItemInActive {
+    background-color: var(--secondary-color);
+    color: black;
+}
+
+.sideBarItem:hover {
+    background-color: var(--hover-color);
+}
+
+.sideBarName {
+    margin-left: 20px;
+    font-weight: 500;
+
+}
+
+.sideBarIcon {
+    margin-right: 15px;
+    font-size: 1.4rem;
+}
+
+/* Style for list item text */
+.MuiListItemText-primary {
+    color: var(--secondary-color);
+}
+
+/* Add divider style */
+.MuiDivider-root {
+    background-color: rgba(255, 255, 255, 0.1);
+}
