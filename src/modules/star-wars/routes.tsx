@@ -12,9 +12,8 @@ export default [
       },
       {
         path: 'people-list',
-        index: true,
         element: <PeopleList />
-      }
+      },
     ]
   }
 ];
