@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import HomeIcon from '@mui/icons-material/Home';
 import StarIcon from '@mui/icons-material/Star';
+import MedicationIcon from '@mui/icons-material/Medication';
 import { List, ListItem, ListItemText, Divider, Box } from '@mui/material';
 
 import styles from './SideBar.module.css'
@@ -14,7 +15,8 @@ const SideBar: React.FC = () => {
 
     const items = [
         { name: 'Home', icon: <HomeIcon className={styles.sideBarIcon} />, route: '/' },
-        { name: 'Star Wars', icon: <StarIcon className={styles.sideBarIcon} />, route: '/star-wars' }
+        { name: 'Star Wars', icon: <StarIcon className={styles.sideBarIcon} />, route: '/star-wars' },
+        { name: 'Patient', icon: <MedicationIcon className={styles.sideBarIcon} />, route: '/patient' }
     ]
 
     return (

@@ -1,7 +1,8 @@
 import { Link, Stack, Typography } from "@mui/material";
 
-import styles from './PeopleList.module.css'
 import PeopleTable from "../../components/PeopleList/PeopleTable";
+
+import styles from './PeopleList.module.css'
 
 const PeopleList = () => {
     return (

@@ -1,0 +1,36 @@
+:root {
+    --light-purple-ccbed-0-40: rgba(204, 190, 208, 0.4);
+}
+
+.dataPicker {
+
+
+    width: 100%;
+
+    [class~='MuiInputBase-root'] {
+        border: solid 1px var(--light-purple-ccbed-0-40)
+    }
+
+
+
+    [class~='Mui-error'] {
+        border-color: red
+    }
+
+    [class~='MuiOutlinedInput-notchedOutline'] {
+        border: none;
+    }
+}
+
+.errorDate {
+    [class~='MuiInputBase-root'] {
+        border: solid 1px red !important
+    }
+}
+
+.errorMsg {
+    color: red;
+    width: 100%;
+    text-align: left;
+    font-size: 12px !important;
+}

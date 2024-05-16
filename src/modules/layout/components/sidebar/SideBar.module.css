@@ -11,6 +11,11 @@
     padding-left: 10px;
     padding-right: 10px;
     font-family: 'Roboto', sans-serif;
+
+}
+
+.sideBar> :first-child {
+    margin-top: 10px;
 }
 
 .sideBarItem {
@@ -22,6 +27,7 @@
     border-radius: 10px;
     margin-bottom: 10px;
 }
+
 
 .sideBarItemActive {
     background-color: var(--primary-color);
