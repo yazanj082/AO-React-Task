@@ -1,3 +1,19 @@
+/*
+This code is a React component for a patient form. It uses Material UI for the UI components and react-hook-form for form handling.
+
+The form collects the following information about a patient:
+- First Name: A required field that only accepts alphabetic characters.
+- Last Name: A required field that only accepts alphabetic characters.
+- Gender: A required field where the user can select either 'Male' or 'Female'.
+- Date of Birth: A required field where the user can select a date. The selected date must be valid and within a certain range.
+- Disorder: A required field where the user can select one or more disorders from a predefined list.
+- Workspace: Anrequired field where the user can select one or more workspaces from a predefined list.
+
+The form includes validation for each field. If a field is not filled out correctly, an error message will be displayed.
+
+When the form is submitted, an alert will be displayed with the form data in JSON format.
+*/
+
 import dayjs from "dayjs"
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { useForm, SubmitHandler, Controller } from "react-hook-form"

@@ -1,3 +1,21 @@
+/*
+This is a React component named 'PeopleTable'. It displays a table of Star Wars characters fetched from the Star Wars API. The table includes pagination and a search feature.
+
+The component uses several hooks for state management:
+- 'useState' is used to manage the current page, search term, table data, API result data, and a boolean to indicate if data fetching is required.
+- 'useEffect' is used to fetch data when the page number changes and to filter the table data when the search term changes.
+- 'useNavigate' from 'react-router-dom' is used to navigate to different routes.
+
+The 'StarWarsService.getCharactersAsync' function is used to fetch the data from the API. The fetched data is stored in 'apiResultData' and 'tableData'. 
+
+The 'handlePageChange' function is used to handle page changes in the pagination. It sets the page number and indicates that data fetching is required.
+
+The component returns a 'Stack' component from Material UI that includes a 'TextField' for the search feature and a 'TableContainer' for the table. The table includes a 'TableHead' for the headers and a 'TableBody' for the data. Each row in the table displays the name, gender, height, and eye color of a character, and includes a 'Details' button that navigates to the '/patient' route.
+
+The 'TablePagination' component is used for the pagination. It displays the total count of characters and allows the user to navigate through the pages.
+*/
+
+
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, TablePagination, Skeleton, TextField, Stack, Button } from '@mui/material';
