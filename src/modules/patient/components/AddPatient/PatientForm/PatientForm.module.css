@@ -9,6 +9,10 @@
 
 }
 
+.requiredField {
+    color: red
+}
+
 .inputBoxLabel {
     margin-right: 10px;
 }
