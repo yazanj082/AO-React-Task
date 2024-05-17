@@ -18,14 +18,12 @@ The 'TablePagination' component is used for the pagination. It displays the tota
 
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, TablePagination, Skeleton, TextField, Stack, Button } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, TablePagination, TextField, Stack, Button } from '@mui/material';
 
+import PeopleTableSkeleton from '../PeopleTableSkeleton';
 import StarWarsService from '../../../services/star-wars-service';
 import StarWarsCharacter from '../../../interfaces/star-wars-character';
 import StarWarsApiResult from '../../../interfaces/star-wars-api-result';
-
-import styles from './PeopleTable.module.css';
-
 
 const PeopleTable = () => {
     const navigate = useNavigate();
@@ -51,10 +49,9 @@ const PeopleTable = () => {
     }, [apiResultData?.results, searchTerm])
 
     const handlePageChange = (_event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
-        if (!requireFetchData) {
-            setPage(newPage + 1)
-            setRequireFetchData(true);
-        }
+        setPage(newPage + 1)
+        setRequireFetchData(true);
+
     }
 
     return (
@@ -70,27 +67,33 @@ const PeopleTable = () => {
                 <Table sx={{ minWidth: 700 }} aria-label="dessert table">
                     <TableHead>
                         <TableRow>
-                            <TableCell className={styles.tableHeaderCell}>Name</TableCell>
-                            <TableCell className={styles.tableHeaderCell} align="center">Gender</TableCell>
-                            <TableCell className={styles.tableHeaderCell} align="center">Height</TableCell>
-                            <TableCell className={styles.tableHeaderCell} align="center">Eye Color</TableCell>
-                            <TableCell className={styles.tableHeaderCell} align="center">Action</TableCell>
+                            <TableCell >Name</TableCell>
+                            <TableCell align="center">Gender</TableCell>
+                            <TableCell align="center">Height</TableCell>
+                            <TableCell align="center">Eye Color</TableCell>
+                            <TableCell align="center">Action</TableCell>
                         </TableRow>
                     </TableHead>
+
                     <TableBody>
-                        {tableData && tableData.map((row) => (
-                            <TableRow key={row.name} className={styles.tableRow}>
-                                <TableCell className={styles.tableBodyCell} component="th" scope="row">
-                                    {requireFetchData ? (<Skeleton height={20} />) : row.name}
-                                </TableCell>
-                                <TableCell className={styles.tableBodyCell} align="center"> {requireFetchData ? (<Skeleton height={20} />) : row.gender}</TableCell>
-                                <TableCell className={styles.tableBodyCell} align="center"> {requireFetchData ? (<Skeleton height={20} />) : row.height}</TableCell>
-                                <TableCell className={styles.tableBodyCell} align="center"> {requireFetchData ? (<Skeleton height={20} />) : row.eye_color}</TableCell>
-                                <TableCell className={styles.tableBodyCell} align="center"> {requireFetchData ? (<Skeleton height={20} />) :
-                                    (<Button color='primary' onClick={() => { navigate('/patient') }}>Details</Button>)}</TableCell>
-                            </TableRow>
-                        ))}
+                        {apiResultData && !requireFetchData ?
+                            tableData?.map((row) => (
+                                <TableRow key={row.name}>
+                                    <TableCell component="th" scope="row">{row.name}</TableCell>
+                                    <TableCell align="center">{row.gender}</TableCell>
+                                    <TableCell align="center">{row.height}</TableCell>
+                                    <TableCell align="center">{row.eye_color}</TableCell>
+                                    <TableCell align="center">
+                                        <Button color='primary' onClick={() => { navigate('/patient') }}>Details</Button>
+                                    </TableCell>
+                                </TableRow>
+                            )) :
+                            <PeopleTableSkeleton numberOfRows={10} />
+                        }
                     </TableBody>
+
+
+
                 </Table>
 
                 <TablePagination
@@ -100,6 +103,7 @@ const PeopleTable = () => {
                     page={page - 1}
                     rowsPerPageOptions={[]}
                     onPageChange={handlePageChange}
+                    disabled={requireFetchData || searchTerm !== ''}
                 />
             </TableContainer>
         </Stack>

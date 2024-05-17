@@ -1,30 +1,69 @@
-# React + TypeScript + Vite
+# React Task V3
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Introduction
 
-Currently, two official plugins are available:
+Welcome to React Task V3! This project is a TypeScript Vite React application with a sidebar that opens different pages. In this README, you'll find instructions on how to run the project and a description of its structure and functionalities.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Getting Started
 
-## Expanding the ESLint configuration
+To get started with this project, follow these steps:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. Clone this repository to your local machine.
+2. Navigate to the project directory.
+3. Install dependencies by running `npm install` or `yarn install`.
+4. Start the development server with `npm run dev` or `yarn dev`.
 
-- Configure the top-level `parserOptions` property like this:
+## Project Structure
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+The project structure is organized as follows:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+# Project Structure
+
+- `src`: This is where the source code of the project is located.
+  - `App.tsx` and `main.tsx`: These are TypeScript files, containing the main components and logic of the application.
+  - `router`: This directory contains files related to routing, which manages the navigation of the application.
+  - `styles`: This directory contains CSS files for styling the application.
+  - `assets`: This directory contains static assets like images or icons used in the application.
+  - `modules`: This directory likely contains different modules or features of the application, organized into subdirectories.
+    - Inside `modules`, there are subdirectories like `home`, `layout`, `patient`, and `star-wars`, each representing a different part of the application.
+      - Each module directory contains `components`, `pages`, and possibly other related files.
+      - `components`: These are reusable UI components used throughout the module.
+      - `pages`: These are the individual pages or views of the module.
+      - `routes.tsx`: This file defines the routes for the module, specifying which components or pages to render for different URLs.
+      - `services`: This directory contain files for interacting with external services or APIs.
+      - `interfaces`: This directory contain TypeScript interface definitions for data structures used in the module.
+
+## Features
+
+### Page 1: People List from Star Wars API
+
+- **Description**: Displays a table with people from the Star Wars API.
+- **Attributes**: Name, Gender, Height, Eye Color.
+- **Additional Functionality**:
+  - Pagination.
+  - Search by name.
+  - More details button to navigate to Page 2.
+
+### Page 2: Add Workspace Form
+
+- **Description**: Form for adding Patient with validation and error messaging.
+- **Fields**:
+  - First Name (required).
+  - Last Name (required).
+  - Gender (required).
+  - Disorder (required).
+  - Date Of Birth (required).
+  - Workspace (required).
+  - Additional workspace fields can be added dynamically.
+- **Functionality**:
+  - Validation and error messages.
+  - Display form data inside an alert on submit.
+
+## Technologies Used
+
+- React
+- TypeScript
+- Vite
+- Material-UI
+- React Router
+- React Hook Form

@@ -7,6 +7,9 @@ import styles from './PeopleList.module.css'
 const PeopleList = () => {
     return (
         <Stack className={`${styles.peopleList} card`} spacing={10}>
+            <Typography variant="h3" >
+                Star Wars
+            </Typography>
             <Typography className={styles.peopleListHeader}>
                 This page contains the table that represent the names of starwars characters.
                 The data of the table are retrived using from star war API <Link href="https://swapi.dev/">Api</Link>.
