@@ -2,6 +2,30 @@
     --light-purple-ccbed-0-40: rgba(204, 190, 208, 0.4);
 }
 
+.inputBox {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+
+}
+
+.inputBoxLabel {
+    margin-right: 10px;
+}
+
+.workspaceDropDown {
+    padding-left: 8px;
+    padding-top: 30px;
+}
+
+.checkBoxGroup {
+    padding-left: 8px;
+}
+
+.addWorkspaceButton {
+    padding-top: 30px !important;
+}
+
 .dataPicker {
 
 

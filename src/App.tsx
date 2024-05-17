@@ -12,6 +12,19 @@ const theme = createTheme({
       main: '#EDF7ED',
     },
   },
+
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        containedPrimary: {
+          color: 'white',
+        },
+        containedSecondary: {
+          color: 'black',
+        },
+      },
+    }
+  }
 });
 
 function App() {
