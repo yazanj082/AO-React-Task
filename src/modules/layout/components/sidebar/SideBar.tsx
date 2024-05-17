@@ -23,7 +23,7 @@ const SideBar: React.FC = () => {
   const navigate = useNavigate();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const [open, setOpen] = useState(isMobile);
+  const [open, setOpen] = useState(false);
 
   const items = [
     {
@@ -69,7 +69,7 @@ const SideBar: React.FC = () => {
               key={index}
               onClick={() => {
                 navigate(item.route);
-                if (isMobile) setOpen(false); // Close the sidebar after navigation on mobile
+                if (isMobile) setOpen(false);
               }}
               className={`${styles.sideBarItem} ${
                 location.pathname === item.route

@@ -140,7 +140,7 @@ const PatientForm = () => {
 
         <Grid item md={6} xs={0} />
 
-        <Grid item xs={2}>
+        <Grid item xs={12}>
           <FormLabel id="demo-radio-buttons-group-label">
             Gender{" "}
             <Typography component="span" className={styles.requiredField}>
@@ -174,8 +174,6 @@ const PatientForm = () => {
             ""
           )}
         </Grid>
-
-        <Grid item xs={10} />
 
         <Grid item md={3} xs={12}>
           <Controller
