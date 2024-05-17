@@ -1,12 +1,18 @@
 .peopleList {
-    padding: 20px;
-    margin: 20px;
-    width: 100%;
+  padding: 20px;
+  margin: 20px;
+  width: 100%;
 }
 
 .peopleListHeader {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #333;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+@media (max-width: 767px) {
+  .peopleList {
+    margin-left: 0;
+  }
 }
