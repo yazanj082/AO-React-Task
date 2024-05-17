@@ -170,7 +170,7 @@ const PatientForm = () => {
                         <Controller
                             rules={{ validate: (value) => (value.filter(x => x === null).length == 0) || 'All WorkSpaces must be filled' }}
                             render={({ field }) => (<Stack spacing={2}>{
-                                field.value.map((value, index) => (
+                                field.value.map((_value, index) => (
                                     <FormControl fullWidth>
                                         <InputLabel>
                                             <Typography component="span">Workspace template <Typography component="span" className={styles.requiredField}>*</Typography></Typography>
