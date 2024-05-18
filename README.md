@@ -59,6 +59,9 @@ The project structure is organized as follows:
   - Validation and error messages.
   - Display form data inside an alert on submit.
 
+- **Tests**:
+  - Added only one simple test file for PeopleList
+
 ## Technologies Used
 
 - React
@@ -67,3 +70,4 @@ The project structure is organized as follows:
 - Material-UI
 - React Router
 - React Hook Form
+- Vitest
