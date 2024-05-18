@@ -67,7 +67,14 @@ const Home = () => {
           </ListItem>
         </List>
       </Box>
-
+      <Box className={styles.section}>
+        <Typography variant="h2" className={styles.heading}>
+          Testing
+        </Typography>
+        <Typography>
+          Added only one simple test file for PeopleList
+        </Typography>
+      </Box>
       <Box className={styles.section}>
         <Typography variant="h2" className={styles.heading}>
           Features
@@ -184,6 +191,7 @@ const Home = () => {
             <ListItem>React</ListItem>
             <ListItem>TypeScript</ListItem>
             <ListItem>Vite</ListItem>
+            <ListItem>Vitest</ListItem>
             <ListItem>Material-UI</ListItem>
             <ListItem>React Router</ListItem>
             <ListItem>React Hook Form</ListItem>
