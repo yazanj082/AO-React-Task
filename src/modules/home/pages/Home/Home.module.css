@@ -18,3 +18,9 @@
 .listBox {
   text-align: center;
 }
+
+@media (max-width: 767px) {
+  .homeContainer {
+    margin-left: 0 !important;
+  }
+}
