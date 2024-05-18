@@ -58,7 +58,7 @@ The project structure is organized as follows:
 - **Functionality**:
   - Validation and error messages.
   - Display form data inside an alert on submit.
-## Features
+## Tests
 - Added only one simple test file for PeopleList
 
 ## Technologies Used
