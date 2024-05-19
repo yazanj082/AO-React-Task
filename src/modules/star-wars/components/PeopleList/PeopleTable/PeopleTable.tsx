@@ -29,6 +29,7 @@ const PeopleTable = () => {
     const navigate = useNavigate();
     const [page, setPage] = useState(1);
     const [searchTerm, setSearchTerm] = useState('');
+    const [isFullSearch, setIsFullSearch] = useState(false);
     const [tableData, setTableData] = useState<StarWarsCharacter[] | null>(null);
     const [apiResultData, setApiResultData] = useState<StarWarsApiResult | null>(null);
     const [requireFetchData, setRequireFetchData] = useState(true);
@@ -46,6 +47,8 @@ const PeopleTable = () => {
             x.gender.includes(searchTerm) || x.height.toLowerCase().includes(searchTerm.toLowerCase()) ||
             x.eye_color.toLowerCase().includes(searchTerm.toLowerCase()))
         setTableData(tempArray ?? [])
+        if (searchTerm == '')
+            setIsFullSearch(false);
     }, [apiResultData?.results, searchTerm])
 
     const handlePageChange = (_event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
@@ -54,15 +57,52 @@ const PeopleTable = () => {
 
     }
 
+    const handleFullSearch = async () => {
+        if (isFullSearch) {
+            setSearchTerm('');
+            if (apiResultData != null) {
+                setTableData(apiResultData.results);
+            }
+            setIsFullSearch(false);
+        } else {
+            setRequireFetchData(true);
+            setIsFullSearch(true);
+
+            let page = 1;
+            let responseData: StarWarsApiResult;
+            const tableData: StarWarsCharacter[] = [];
+
+            try {
+                do {
+                    const response = await StarWarsService.getCharactersAsync(page);
+                    responseData = response.data;
+                    const filteredResults = responseData.results.filter(x => x.name.toLowerCase().includes(searchTerm.toLowerCase()));
+                    tableData.push(...filteredResults);
+                    page += 1;
+                } while (responseData.next != null);
+
+                setTableData(tableData);
+            } catch (error) {
+                console.error("Error fetching characters:", error);
+            } finally {
+                setRequireFetchData(false);
+            }
+        }
+    };
+
+
     return (
         <Stack spacing={2}>
-            <TextField
-                label="Search"
-                value={searchTerm}
-                onChange={(event) => { setSearchTerm(event.target.value) }}
-                variant="outlined"
-            />
-
+            <Stack direction={'row'}>
+                <TextField
+                    label="Search (name, gender, height, eye color)"
+                    value={searchTerm}
+                    onChange={(event) => { setSearchTerm(event.target.value) }}
+                    variant="outlined"
+                    fullWidth={true}
+                />
+                <Button disabled={requireFetchData} onClick={handleFullSearch}>{isFullSearch ? "Cancel" : "Full Search Name"}</Button>
+            </Stack>
             <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 700 }} aria-label="dessert table">
                     <TableHead>
@@ -99,7 +139,7 @@ const PeopleTable = () => {
                 <TablePagination
                     component="div"
                     count={tableData?.length == apiResultData?.results.length ? apiResultData?.count ?? 0 : 0}
-                    rowsPerPage={10}
+                    rowsPerPage={tableData ? tableData.length : 10}
                     page={page - 1}
                     rowsPerPageOptions={[]}
                     onPageChange={handlePageChange}
