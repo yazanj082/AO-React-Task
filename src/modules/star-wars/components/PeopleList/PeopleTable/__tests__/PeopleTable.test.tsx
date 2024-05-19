@@ -45,7 +45,7 @@ describe('PeopleTable', async () => {
                 <PeopleTable />
             </MemoryRouter>
         );
-        expect(screen.getByLabelText('Search')).toBeInTheDocument();
+        expect(screen.getByLabelText('Search (name, gender, height, eye color)')).toBeInTheDocument();
     });
 
     it('changes value when search input changes', async () => {
@@ -54,7 +54,7 @@ describe('PeopleTable', async () => {
                 <PeopleTable />
             </MemoryRouter>
         );
-        const input = screen.getByLabelText('Search');
+        const input = screen.getByLabelText('Search (name, gender, height, eye color)');
         fireEvent.change(input, { target: { value: 'Luke' } });
         await waitFor(() => expect((input as HTMLInputElement).value).toBe('Luke'));
     });
