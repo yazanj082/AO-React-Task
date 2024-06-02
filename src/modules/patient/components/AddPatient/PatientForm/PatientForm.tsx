@@ -75,7 +75,7 @@ const PatientForm = () => {
     handleSubmit,
     control,
     formState: { errors },
-  } = useForm<Inputs>({
+  } = useForm<Inputs>({mode:"all",
     defaultValues: {
       workspace: [""],
     },
